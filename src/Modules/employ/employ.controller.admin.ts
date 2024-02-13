@@ -110,21 +110,21 @@ export const AdminEmployController = {
   update: async (req: Request, res: Response, next: NextFunction) => {
     var data = req.body;
     const { id } = req.params;
-console.log(id)
-    const trx = await Employ.startTransaction();
+
+
 
     try {
       // store file
 
-      await Employ.query(trx)
+      await Employ.query()
         .patchAndFetchById(id, data)
         .throwIfNotFound({ message: "Employ not found!" })
         .then((result) => res.json(result));
-      await trx.commit();
+ 
     } catch (err) {
    
 
-      await trx.rollback();
+
       return next(err);
     }
   },
