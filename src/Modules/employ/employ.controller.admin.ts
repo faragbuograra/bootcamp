@@ -77,9 +77,7 @@ export const AdminEmployController = {
       return res.json({ message: "id should be number" });
     }
     let query = Employ.query()
-      .withGraphFetched(
-        `[employmentDocuments,employFunction,employmentAcademicQualifications,employmentTransportation,employmentPromotions,employmentHealthInsurance,employmentPenalties,employmentCommittees,employmentVacations,employRightToSign,employPerformanceEvaluation,employPersonalCommitments,employEct,employmentscientificsessions]`
-      )
+    
       .findById(req.params.id)
       .then((result) => res.json(result));
   },
@@ -112,7 +110,7 @@ export const AdminEmployController = {
   update: async (req: Request, res: Response, next: NextFunction) => {
     var data = req.body;
     const { id } = req.params;
-
+console.log(id)
     const trx = await Employ.startTransaction();
 
     try {

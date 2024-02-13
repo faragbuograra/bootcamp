@@ -25,7 +25,7 @@ export default class Employ extends TimestampedModel {
 
     static jsonSchema = {
         type: 'object',
-        required: [ 'name' ],
+   
         properties: {
             name: { type: 'string', minLength: 1 }
         }
