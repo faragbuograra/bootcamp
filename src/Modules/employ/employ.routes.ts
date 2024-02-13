@@ -40,7 +40,7 @@ export const AdminEmployRoutes = (router: Router, prefix: string) => {
             AdminEmployController.show
         )
         .patch(
-            Multer.simple('Employ'),
+            Multer.none,
             AdminEmployController.update
         )
         .delete(
